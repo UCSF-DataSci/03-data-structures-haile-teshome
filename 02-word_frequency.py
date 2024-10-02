@@ -20,11 +20,24 @@ Hints:
 import sys
 
 def word_frequency(text):
-    frequencies = {} # Dictionary to store word frequencies
+    #Initialize dictionary 
+    frequencies = {}
 
-    # Your code here
+    #Convert text to lowercase and remove punctuation
+    text = text.lower()
+    punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    for char in punctuation:
+        text = text.replace(char, ' ')
+
+    # Count word frequencies
+    words = text.split()
+    for word in words:
+        if word in frequencies:
+            frequencies[word] += 1
+        else:
+            frequencies[word] = 1
     
-    return frequencies
+    return dict(sorted(frequencies.items()))
 
 # Scaffold for opening a file and running word_frequency() on the contents
 if __name__ == "__main__":

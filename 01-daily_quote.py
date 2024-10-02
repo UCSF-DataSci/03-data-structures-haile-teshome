@@ -17,17 +17,22 @@ from datetime import date
 
 quotes = [
     # Create a list of quotes here
+    "Ill get it next time",
+    "Geez louise",
+    "Gosh darn it",
+    "Well golllly",
+    "Dang nab it",
+    "Shucks",
+    "I'm feeling a little goofy"
 ]
 
 def get_quote_of_the_day(quotes):
-    todays_quote = None
-
-    # Your code here
-    
-    return todays_quote
+    todays_quote = quotes
+    random.seed(int(date.today().strftime('%m%d%Y')))
+    return random.choice(quotes)
 
 if __name__ == "__main__":
     print(get_quote_of_the_day(quotes))
 
-# Cron job (add this to your crontab):
-# 0 8 * * * /usr/bin/python3 /path/to/quote_generator.py >> /path/to/daily_quote.txt
+# # Cron job (add this to your crontab):
+# # 0 8 * * * /usr/bin/python3 /Users/hteshome/Desktop/Pytools_Class/03-data-structures-haile-teshome/quote_generator.py >> /Users/hteshome/Desktop/Pytools_Class/03-data-structures-haile-teshome/daily_quote.txt
